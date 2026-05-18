@@ -7,10 +7,10 @@
     <style>
         :root {
             --primary: #0f3460;    /* Blu Avio Scuro (colore principale del logo) */
-            --secondary: #328cc1;  /* Blu Intermedio dei dettagli */
-            --accent: #adc5db;     /* Celeste Polvere geometrico della copertina */
-            --dark: #162447;       /* Blu Notte Profondo per i testi scuri */
-            --light: #eef3f7;      /* Sfondo Grigio-Azzurro chiarissimo e pulito */
+            --secondary: #328cc1;  /* Blu Intermedio */
+            --accent: #adc5db;     /* Celeste Polvere geometrico */
+            --dark: #162447;       /* Blu Notte Profondo */
+            --light: #f0f4f8;      /* Sfondo morbido azzurrato */
             --white: #ffffff;
         }
         
@@ -18,7 +18,7 @@
         
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--dark);
             background-color: var(--light);
         }
@@ -33,13 +33,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border-bottom: 3px solid var(--accent);
         }
         nav .logo { 
             color: var(--white); 
             font-size: 1.5em; 
-            font-weight: bold;
+            font-weight: 800;
             letter-spacing: 1px;
         }
         nav .logo span { color: var(--accent); }
@@ -47,385 +47,451 @@
         nav ul a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.95em; transition: color 0.3s; }
         nav ul a:hover { color: var(--accent); }
 
-        /* Sezione Principale (Hero) */
+        /* Banner Principale Imponente (Hero) */
         .hero {
             background: linear-gradient(135deg, var(--dark), var(--primary));
             color: var(--white);
-            padding: 90px 20px;
+            padding: 80px 20px;
             text-align: center;
+            border-bottom: 5px solid var(--secondary);
         }
-        .hero h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto 30px auto; opacity: 0.9; }
+        .hero h1 { font-size: 3em; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+        .hero p { font-size: 1.3em; max-width: 800px; margin: 0 auto 35px auto; opacity: 0.95; font-weight: 300; }
         
-        .cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        /* Contenitore Principale */
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
         
-        /* Bottone E-Commerce */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 6px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .btn-primary { 
-            background-color: var(--white); 
-            color: var(--primary); 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-            border: 2px solid var(--white);
-        }
-        .btn-primary:hover { 
-            background-color: transparent; 
-            color: var(--white);
-            transform: translateY(-2px); 
-        }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { text-align: center; font-size: 2.2em; color: var(--primary); margin-bottom: 40px; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--accent); margin: 10px auto 0 auto; border-radius: 2px; }
-
-        /* Macro Categorie Layout */
-        .macro-category {
-            margin-bottom: 50px;
-        }
-        .macro-title {
-            font-size: 1.8em;
+        /* Titoli di sezione */
+        .main-title {
+            text-align: center;
+            font-size: 2.5em;
             color: var(--primary);
-            background-color: var(--accent);
-            padding: 10px 20px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-weight: 700;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .main-title::after {
+            content: ''; display: block; width: 80px; height: 5px; background-color: var(--secondary); margin: 15px auto 0 auto; border-radius: 3px;
         }
 
-        /* Griglia dei Brand */
-        .brands-container {
+        /* Macro Categorie (Grandi Blocchi) */
+        .macro-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(15, 52, 96, 0.05);
+            border-top: 6px solid var(--primary);
+        }
+        
+        /* Varianti di colore per le testate delle categorie */
+        .macro-section.cat-vetri { border-top-color: #2bc4d2; }
+        .macro-section.cat-mecc { border-top-color: #328cc1; }
+        .macro-section.cat-manut { border-top-color: #2ecc71; }
+        .macro-section.cat-carrozzeria { border-top-color: #e74c3c; }
+        .macro-section.cat-truck { border-top-color: #f39c12; }
+
+        .macro-header {
+            font-size: 2em;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 800;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 15px;
+        }
+
+        /* Griglia dei Brand Interni */
+        .brands-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
         }
+
+        /* Card del Brand Singolo */
         .brand-card {
-            background: var(--white);
-            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            border-top: 4px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        .brand-card h3 { 
-            color: var(--primary); 
-            font-size: 1.4em; 
-            margin-bottom: 12px; 
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 5px;
-        }
-        .product-list { 
-            list-style: none; 
-            padding-left: 0; 
-        }
-        .product-list li { 
-            padding: 6px 0; 
-            font-size: 0.95em; 
-            position: relative;
-            padding-left: 15px;
-        }
-        .product-list li::before {
-            content: "•";
-            color: var(--secondary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+            background: var(--white);
         }
 
-        /* Layout Contatti */
-        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        @media(max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } .hero h1 { font-size: 2em; } nav { flex-direction: column; gap: 15px; } }
-        .info-box { background: var(--white); padding: 30px; border-radius: 8px; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .info-box p { margin-bottom: 12px; }
-        .badge { background-color: var(--primary); color: var(--white); padding: 3px 8px; border-radius: 4px; font-size: 0.8em; font-weight: 600; }
+        /* Box finto Logo ad alto impatto grafico */
+        .brand-logo-box {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: 900;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
+        }
+        .brand-card:nth-child(even) .brand-logo-box { background: var(--secondary); }
+        .brand-card.lpr .brand-logo-box { background: #111e38; }
+        .brand-card.kamoka .brand-logo-box { background: #cc0000; }
+        .brand-card.ocap .brand-logo-box { background: #0099cc; }
 
-        a { color: var(--secondary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        /* Elenco prodotti interno alle card */
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .product-tag {
+            background: var(--white);
+            border: 1px solid #cbd5e1;
+            color: var(--dark);
+            font-size: 0.85em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
 
-        /* Piè di pagina */
+        /* Pulsante rapido d'acquisto per singola card */
+        .btn-card-order {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+            display: block;
+            margin-top: auto;
+        }
+        .btn-card-order:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Box Contatti */
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        @media(max-width: 768px) { 
+            .contact-layout { grid-template-columns: 1fr; } 
+            .hero h1 { font-size: 2em; } 
+            nav { flex-direction: column; gap: 15px; }
+            .macro-header { font-size: 1.5em; }
+        }
+        .info-box { background: var(--white); padding: 30px; border-radius: 12px; border-left: 6px solid var(--primary); box-shadow: 0 4px 15 rgba(0,0,0,0.02); }
+        .info-box h3 { margin-bottom: 15px; font-size: 1.3em; color: var(--primary); }
+        .info-box p { margin-bottom: 12px; font-size: 1.05em; }
+        .badge { background-color: var(--primary); color: var(--white); padding: 4px 10px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+
         footer { 
             background-color: var(--dark); 
-            color: rgba(255,255,255,0.7); 
+            color: rgba(255,255,255,0.8); 
             text-align: center; 
-            padding: 40px 20px; 
-            font-size: 0.95em; 
-            border-top: 4px solid var(--accent); 
-            margin-top: 40px; 
+            padding: 50px 20px; 
+            font-size: 1em; 
+            border-top: 5px solid var(--secondary); 
+            margin-top: 60px; 
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigazione -->
     <nav>
         <div class="logo">EASY <span>CAR</span></div>
         <ul>
-            <li><a href="#ricambi">Linee e Prodotti</a></li>
-            <li><a href="#contatti">Contatti Operativi</a></li>
+            <li><a href="#catalogo-prodotti">Linee Distribuzione</a></li>
+            <li><a href="#info-operative">Orari e Contatti</a></li>
         </ul>
     </nav>
 
+    <!-- Hero Banner -->
     <header class="hero">
-        <h1>DISTRIBUZIONE RICAMBI AUTO</h1>
-        <p>La tua soluzione globale nel mondo del ricambio. Logistica d'eccellenza e spedizioni rapide in tutta la Sardegna.</p>
-        <div class="cta-group">
-            <a href="https://easycarsas.it" target="_blank" class="btn btn-primary">🛒 PORTALE ORDINI B2B</a>
-        </div>
+        <h1>La tua soluzione globale nel mondo del ricambio</h1>
+        <p>Distribuzione all'ingrosso per officine e ricambisti. Velocità di esecuzione, assortimento stock e spedizioni quotidiane in tutta la Sardegna.</p>
     </header>
 
-    <section class="container" id="ricambi">
-        <h2 class="section-title">Specifiche Prodotti Gestiti per Marchio</h2>
+    <!-- Area Prodotti -->
+    <main class="container" id="catalogo-prodotti">
+        <h2 class="main-title">Gamma Prodotti Gestiti</h2>
 
-        <!-- CATEGORIA 1 -->
-        <div class="macro-category">
-            <div class="macro-title">💎 Cristalli, Vetri e Accessori</div>
-            <div class="brands-container">
+        <!-- CATEGORIA 1: CRISTALLI -->
+        <section class="macro-section cat-vetri">
+            <div class="macro-header">💎 Cristalli, Vetri e Accessori</div>
+            <div class="brands-grid">
                 <div class="brand-card">
-                    <h3>CRYSTAL DRIVE / DIRA / CRYSTAL MOTOR</h3>
-                    <ul class="product-list">
-                        <li>Parabrezza anteriori certificati</li>
-                        <li>Lunotti termici posteriori</li>
-                        <li>Scendenti laterali e vetri fissi</li>
-                        <li>Kit incollaggio rapido professionale</li>
-                        <li>Guarnizioni specifiche per cristalli</li>
-                        <li>Filo da taglio ad alta resistenza</li>
-                        <li>Molle a gas per cofani e bauli</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: linear-gradient(to right, #1d4ed8, #3b82f6);">Crystal Drive / Dira</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Parabrezza</span><span class="product-tag">Lunotti Termici</span>
+                            <span class="product-tag">Scendenti Laterali</span><span class="product-tag">Vetri Fissi</span>
+                            <span class="product-tag">Kit Incollaggio</span><span class="product-tag">Guarnizioni</span>
+                            <span class="product-tag">Filo da Taglio</span><span class="product-tag">Molle a Gas</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>MIRAGLIO</h3>
-                    <ul class="product-list">
-                        <li>Meccanismi alzavetri elettrici</li>
-                        <li>Meccanismi alzavetri manuali</li>
-                        <li>Maniglie interne ed esterne</li>
-                        <li>Serrature portiera e meccanismi di chiusura</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #22c55e;">Miraglio</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Alzavetri Elettrici</span><span class="product-tag">Alzavetri Manuali</span>
+                            <span class="product-tag">Maniglie Interne/Esterne</span><span class="product-tag">Serrature Portiera</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>BIAGI CORRADO</h3>
-                    <ul class="product-list">
-                        <li>Piastre per specchi retrovisori</li>
-                        <li>Vetri specchio sostitutivi</li>
-                        <li>Applicazioni per auto e veicoli industriali</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #0f172a;">Biagi Corrado</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Piastre Retrovisori</span><span class="product-tag">Vetri Specchio Sostitutivi</span>
+                            <span class="product-tag">Linea Auto</span><span class="product-tag">Linea Veicoli Industriali</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- CATEGORIA 2 -->
-        <div class="macro-category">
-            <div class="macro-title">⚙️ Meccanica ed Elettronica</div>
-            <div class="brands-container">
+        <!-- CATEGORIA 2: MECCANICA ED ELETTRONICA -->
+        <section class="macro-section cat-mecc">
+            <div class="macro-header">⚙️ Meccanica ed Elettronica</div>
+            <div class="brands-grid">
                 <div class="brand-card">
-                    <h3>WAI</h3>
-                    <ul class="product-list">
-                        <li>Alternatori automotive completi</li>
-                        <li>Motorini di avviamento ad alta efficienza</li>
-                        <li>Componentistica elettrica di rotazione</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #1e3a8a;">WAI</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Alternatori Completi</span><span class="product-tag">Motorini Avviamento</span>
+                            <span class="product-tag">Rotazione Elettrica</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
-                <div class="brand-card">
-                    <h3>LPR GROUP</h3>
-                    <ul class="product-list">
-                        <li>Pastiglie freno e ganasce</li>
-                        <li>Dischi e tamburi freno</li>
-                        <li>Cilindri freno e frizione</li>
-                        <li>Pompe freno e pompe acqua</li>
-                        <li>Tubi freno flessibili</li>
-                        <li>Correttori di frenata</li>
-                        <li>Spie e sensori usura freno</li>
-                    </ul>
+                <div class="brand-card lpr">
+                    <div>
+                        <div class="brand-logo-box">LPR Group</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Pastiglie Freno</span><span class="product-tag">Ganasce</span>
+                            <span class="product-tag">Dischi Freno</span><span class="product-tag">Tamburi</span>
+                            <span class="product-tag">Cilindri Freno/Frizione</span><span class="product-tag">Pompe Freno</span>
+                            <span class="product-tag">Pompe Acqua</span><span class="product-tag">Tubi Freno</span>
+                            <span class="product-tag">Correttori Frenata</span><span class="product-tag">Spie Usura</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
-                <div class="brand-card">
-                    <h3>KAMOKA AUTO PARTS</h3>
-                    <ul class="product-list">
-                        <li>Filtri (aria, olio, carburante, abitacolo) e kit tagliandi</li>
-                        <li>Pinze freno e componenti impianto frenante</li>
-                        <li>Candele di accensione e candelette prerescaldo</li>
-                        <li>Valvole EGR e corpi farfallati</li>
-                        <li>Sensori motore, cinghie e tendicinghia</li>
-                        <li>Termostati, flange e pompe acqua</li>
-                        <li>Debimetri e pulegge albero motore</li>
-                        <li>Molle spiroidali, molle airbag e coperchi motori</li>
-                        <li>Tubi intercooler, cavi frizione e trasmissione</li>
-                        <li>Vaschette espansione, tappi e motorini tergicristallo</li>
-                        <li>Alzavetri elettrici e molto altro</li>
-                    </ul>
+                <div class="brand-card kamoka">
+                    <div>
+                        <div class="brand-logo-box">Kamoka Auto Parts</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Filtri e Tagliandi</span><span class="product-tag">Pinze Freno</span>
+                            <span class="product-tag">Candele/Candelette</span><span class="product-tag">Valvole EGR</span>
+                            <span class="product-tag">Corpi Farfallati</span><span class="product-tag">Sensori Motore</span>
+                            <span class="product-tag">Cinghie e Tenditori</span><span class="product-tag">Termostati e Flange</span>
+                            <span class="product-tag">Debimetri</span><span class="product-tag">Pulegge</span>
+                            <span class="product-tag">Molle Spiroidali</span><span class="product-tag">Tubi Intercooler</span>
+                            <span class="product-tag">Alzavetri Elettrici</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
-                <div class="brand-card">
-                    <h3>OCAP GROUP</h3>
-                    <ul class="product-list">
-                        <li>Bracci oscillanti e sospensioni</li>
-                        <li>Snodi sferici e snodi sterzo</li>
-                        <li>Silentblock e supporti elastici</li>
-                        <li>Teste sterzo, tiranti e barre di accoppiamento</li>
-                        <li>Biellette e barre stabilizzatrici</li>
-                        <li>Cuffie protezione scatola sterzo e giunti</li>
-                        <li>Ammortizzatori e supporti ammortizzatore</li>
-                    </ul>
+                <div class="brand-card ocap">
+                    <div>
+                        <div class="brand-logo-box">Ocap Group</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Bracci Oscillanti</span><span class="product-tag">Snodi Sferici/Sterzo</span>
+                            <span class="product-tag">Silentblock</span><span class="product-tag">Teste Sterzo</span>
+                            <span class="product-tag">Tiranti Sterzo</span><span class="product-tag">Barre Stabilizzatrici</span>
+                            <span class="product-tag">Cuffie Sterzo/Giunti</span><span class="product-tag">Ammortizzatori</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- CATEGORIA 3 -->
-        <div class="macro-category">
-            <div class="macro-title">🧪 Manutenzione, Clima, Fluidi e Altri Accessori</div>
-            <div class="brands-container">
+        <!-- CATEGORIA 3: MANUTENZIONE, CLIMA -->
+        <section class="macro-section cat-manut">
+            <div class="macro-header">🧪 Manutenzione, Clima e Fluidi</div>
+            <div class="brands-grid">
                 <div class="brand-card">
-                    <h3>SIROIL</h3>
-                    <ul class="product-list">
-                        <li>Lubrificanti e oli motore per auto e truck</li>
-                        <li>Oli per trasmissioni e cambi manuali/automatici</li>
-                        <li>Liquidi antigelo protettivi concentrati e pronti all'uso</li>
-                        <li>Fluidi per circuiti idraulici e freni (DOT)</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #b45309;">Siroil</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Oli Motore Auto/Truck</span><span class="product-tag">Oli Trasmissione</span>
+                            <span class="product-tag">Liquidi Antigelo</span><span class="product-tag">Fluidi Freni</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>FASTNER</h3>
-                    <ul class="product-list">
-                        <li>Tubi intercooler stampati</li>
-                        <li>Manicotti in gomma e silicone ad alta resistenza</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #475569;">Fastner</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Tubi Intercooler Stampati</span><span class="product-tag">Manicotti in Gomma</span>
+                            <span class="product-tag">Manicotti in Silicone</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>AHE / 4SEASONS</h3>
-                    <ul class="product-list">
-                        <li>Compressori per aria condizionata (A/C)</li>
-                        <li>Radiatori raffreddamento motore</li>
-                        <li>Elettroventole e moduli resistenza regolazione</li>
-                        <li>Rubinetti riscaldamento e motori ventilatore abitacolo</li>
-                        <li>Condensatori, oilcooler, riscaldatori e intercooler</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #1d4ed8;">AHE / 4Seasons</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Compressori A/C</span><span class="product-tag">Radiatori Motore</span>
+                            <span class="product-tag">Elettroventole</span><span class="product-tag">Moduli Resistenza</span>
+                            <span class="product-tag">Ventilatori Abitacolo</span><span class="product-tag">Condensatori</span>
+                            <span class="product-tag">Oilcooler</span><span class="product-tag">Riscaldatori</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>A.I.CHEM</h3>
-                    <ul class="product-list">
-                        <li>Pasta lavamani professionale ad alta efficacia</li>
-                        <li>Soluzioni chimiche e detergenti industriali per officine</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #dc2626;">A.I.Chem</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Pasta Lavamani High Quality</span><span class="product-tag">Soluzioni Chimiche Officina</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- CATEGORIA 4 -->
-        <div class="macro-category">
-            <div class="macro-title">🚗 Carrozzeria, Plastiche e Lamierati</div>
-            <div class="brands-container">
+        <!-- CATEGORIA 4: CARROZZERIA -->
+        <section class="macro-section cat-carrozzeria">
+            <div class="macro-header">🚗 Carrozzeria, Plastiche e Lamierati</div>
+            <div class="brands-grid">
                 <div class="brand-card">
-                    <h3>ISAM / POLIPLAST</h3>
-                    <ul class="product-list">
-                        <li>Paraurti anteriori e posteriori</li>
-                        <li>Griglie radiatore e mascherine estetiche</li>
-                        <li>Staffe paraurti e modanature</li>
-                        <li>Traverse di rinforzo strutturale e parafanghi</li>
-                        <li>Spoiler, passaruota e copri gancio</li>
-                        <li>Copri motore per auto e veicoli industriali</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #991b1b;">Isam / Poliplast</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Paraurti Ant/Post</span><span class="product-tag">Griglie Radiatore</span>
+                            <span class="product-tag">Mascherine</span><span class="product-tag">Staffe Paraurti</span>
+                            <span class="product-tag">Modanature</span><span class="product-tag">Traverse Rinforzo</span>
+                            <span class="product-tag">Parafanghi</span><span class="product-tag">Spoiler</span>
+                            <span class="product-tag">Passaruota</span><span class="product-tag">Coprimotore</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>COVIND</h3>
-                    <ul class="product-list">
-                        <li>Pedane salita e gradini</li>
-                        <li>Copricerchi commerciali</li>
-                        <li>Proiettori, fanaleria anteriore/posteriore e frecce</li>
-                        <li>Specchi retrovisori completi e calotte specchio</li>
-                        <li>Paraurti e lamierati industriali (tutto ordinabile in tempi rapidi)</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #0284c7;">Covind</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Pedane Salita</span><span class="product-tag">Copricerchi Commerciali</span>
+                            <span class="product-tag">Proiettori e Fanaleria</span><span class="product-tag">Specchi Retrovisori</span>
+                            <span class="product-tag">Calotte Specchio</span><span class="product-tag">Paraurti Truck</span>
+                            <span class="product-tag">Lamierati Rapidi</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>DRA AUTO PARTS</h3>
-                    <ul class="product-list">
-                        <li>Paraurti e lamierati di ricambio</li>
-                        <li>Specchi retrovisori e calotte</li>
-                        <li>Fari, fanali e indicatori di direzione</li>
-                        <li>Maniglieria e minuteria di carrozzeria</li>
-                        <li>Gamma completa ordinabile a catalogo</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #15803d;">DRA Auto Parts</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Paraurti di Ricambio</span><span class="product-tag">Lamierati Carrozzeria</span>
+                            <span class="product-tag">Specchi Retrovisori</span><span class="product-tag">Fari e Fanali</span>
+                            <span class="product-tag">Indicatori Direzione</span><span class="product-tag">Maniglieria</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>MCS (Melchioni Car System)</h3>
-                    <ul class="product-list">
-                        <li>Proiettori principali ed elementi ottici</li>
-                        <li>Fari fendinebbia e fanali posteriori</li>
-                        <li>Specchi retrovisori completi regolabili</li>
-                        <li>Calotte specchio e vetri specchio di ricambio</li>
-                        <li>Serrature veicolo e maniglieria esterna/interna</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #4f46e5;">MCS (Melchioni)</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Proiettori e Ottiche</span><span class="product-tag">Fari Fendinebbia</span>
+                            <span class="product-tag">Fanali Posteriori</span><span class="product-tag">Specchi Completi</span>
+                            <span class="product-tag">Calotte e Vetri Specchio</span><span class="product-tag">Serrature e Maniglie</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- CATEGORIA 5 -->
-        <div class="macro-category">
-            <div class="macro-title">🚚 Finiture, Allestimenti e Accessori</div>
-            <div class="brands-container">
+        <!-- CATEGORIA 5: TRUCK FINITURE -->
+        <section class="macro-section cat-truck">
+            <div class="macro-header">🚚 Finiture, Allestimenti e Accessori</div>
+            <div class="brands-grid">
                 <div class="brand-card">
-                    <h3>VIVI AUTOPARTS / ALLEX</h3>
-                    <ul class="product-list">
-                        <li>Spazzole tergicristallo con tecnologia Flat ad alta visibilità</li>
-                        <li>Spazzole tergicristallo tradizionali universali</li>
-                        <li>Espositori completi porta spazzole fino a 16 posizioni</li>
-                        <li>Prodotti regolarmente disponibili in promozione</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #0369a1;">Vivi / Allex</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Spazzole Flat Alta Visibilità</span><span class="product-tag">Tergiscristallo Universali</span>
+                            <span class="product-tag">Espositori 16 Posizioni</span><span class="product-tag">Linee in Promozione</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>E.CO EXACT COMPONENTS</h3>
-                    <ul class="product-list">
-                        <li>Elementi di fissaggio professionali, clip e tasselli</li>
-                        <li>Minuterie metalliche e plastiche per carrozzeria</li>
-                        <li>Bottoni pannello e staffe paraurti</li>
-                        <li>Portatarga specifici</li>
-                        <li>Rotor completo di campionistica assortita (disponibile su ordinazione)</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #334155;">E.CO Exact Components</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Clip e Tasselli Fissaggio</span><span class="product-tag">Minuterie Plastiche/Metallo</span>
+                            <span class="product-tag">Bottoni Pannello</span><span class="product-tag">Staffe Paraurti</span>
+                            <span class="product-tag">Portatarga Specifici</span><span class="product-tag">Rotor Campionatura</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
                 <div class="brand-card">
-                    <h3>AAISTER</h3>
-                    <ul class="product-list">
-                        <li>Kit riparazione e supporti montaggio</li>
-                        <li>Parafanghi, cassette porta attrezzi e portaestintori</li>
-                        <li>Accessoristica per motrici e rimorchi</li>
-                        <li>Adesivi di sicurezza obbligatori e paraspruzzi</li>
-                        <li>Porta documenti, griglie per fanali e assorbenti universali</li>
-                        <li>Copricerchi truck, scalette, taniche e spegni fiamme</li>
-                        <li>Sistemi di bloccaggio carico, chiusura porte e tappi</li>
-                        <li>Vasta gamma industriale interamente ordinabile</li>
-                    </ul>
+                    <div>
+                        <div class="brand-logo-box" style="background: #1e293b;">Aaister</div>
+                        <div class="product-tags">
+                            <span class="product-tag">Kit Riparazione</span><span class="product-tag">Supporti Montaggio</span>
+                            <span class="product-tag">Parafanghi Truck</span><span class="product-tag">Cassette Porta Attrezzi</span>
+                            <span class="product-tag">Portaestintori</span><span class="product-tag">Adesivi Sicurezza</span>
+                            <span class="product-tag">Paraspruzzi</span><span class="product-tag">Portadocumenti</span>
+                            <span class="product-tag">Griglie Fanali</span><span class="product-tag">Sistemi Bloccaggio Carico</span>
+                        </div>
+                    </div>
+                    <a href="https://b2b.easycarsas.it/easycar/" target="_blank" class="btn-card-order">Ordina Ora su B2B</a>
                 </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-    </section>
-
-    <section class="container" id="contatti">
-        <h2 class="section-title">Informazioni Operative</h2>
+    <!-- Area Logistica Informativa -->
+    <section class="container" id="info-operative" style="border-top: 2px solid var(--accent); padding-top: 50px;">
+        <h2 class="main-title">Informazioni Logistiche</h2>
         <div class="contact-layout">
             <div class="info-box">
-                <h3>Sede di Cagliari</h3>
-                <p style="margin-top: 15px;">Viale Umberto Ticca, 26 - 09122 Cagliari (CA)</p>
-                <p><strong>Fisso Ufficio:</strong> <a href="tel:070242054">070 242054</a> / <a href="tel:070240632">070 240632</a></p>
-                <p><strong>WhatsApp Supporto:</strong> <a href="https://wa.me" target="_blank">+39 393 867 2737</a></p>
+                <h3>Sede Principale</h3>
+                <p>Viale Umberto Ticca, 26 - 09122 Cagliari (CA)</p>
+                <p><strong>Ufficio Commerciale:</strong> <a href="tel:070242054">070 242054</a> / <a href="tel:070240632">070 240632</a></p>
+                <p><strong>WhatsApp Ordini:</strong> <a href="https://wa.me" target="_blank">+39 393 867 2737</a></p>
             </div>
-            <div class="info-box">
-                <h3>Logistica e Servizi</h3>
-                <p style="margin-top: 15px;"><span class="badge">Lunedì - Venerdì</span></p>
-                <p>Mattina: 08:30 - 13:00 | Pomeriggio: 15:30 - 19:00</p>
-                <p style="margin-top: 10px; font-size: 0.85em; color: #666;">
-                    ℹ️ <strong>Politica Resi:</strong> La merce può essere resa esclusivamente entro 10 giorni lavorativi dalla consegna, provvista della confezione originale integra.
+            <div class="info-box" style="border-left-color: var(--secondary);">
+                <h3>Evasione Ordini e Spedizioni</h3>
+                <p><span class="badge">Lunedì - Venerdì</span> 08:30 - 13:00 | 15:30 - 19:00</p>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #555; font-style: italic;">
+                    ⚠️ <strong>Nota autorizzazione resi:</strong> Invio merce tassativamente consentito entro 10 giorni lavorativi, unicamente provvisto dell'imballo originale integro di fabbrica.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p><strong>Easy Car S.A.S. di Aresu Sergio & C.</strong></p>
         <p>Viale Umberto Ticca 26, 09122 Cagliari | P.IVA: 02562470921</p>
-        <p style="font-size: 0.85em; opacity: 0.6; margin-top: 10px;">La Nostra Passione, Il Vostro Traguardo — &copy; 2026 Easy Car. Tutti i diritti riservati.</p>
+        <p style="font-size: 0.85em; opacity: 0.7; margin-top: 15px;">La Nostra Passione, Il Vostro Traguardo — Spedizioni quotidiane capillari in tutta la Sardegna.</p>
     </footer>
 
 </body>
