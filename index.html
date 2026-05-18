@@ -3,58 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Easy Car SAS di Biagio Folleri & C. | Distribuzione Ricambi Auto</title>
-  <style>
-    body {margin:0; font-family: 'Segoe UI', sans-serif; background:#f5f9fc; color:#333;}
-    header {background:#0078b8; color:#fff; text-align:center; padding:40px 10px;}
-    header h1 {margin:0; font-size:2.2em;}
-    nav {background:#005f92; display:flex; justify-content:center;}
-    nav a {color:#fff; text-decoration:none; padding:15px 25px; font-weight:bold;}
-    nav a:hover {background:#009fe3;}
-    section {padding:40px 20px; max-width:1000px; margin:auto;}
-    .partner {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
-    .partner div {background:#eaf4fb; border-radius:8px; padding:20px; text-align:center;}
-    footer {background:#004e77; color:#fff; text-align:center; padding:15px;}
-    .btn {display:inline-block; background:#009fe3; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;}
-  </style>
+  <title>Easy Car SAS | Distribuzione Ricambi Auto</title>
+  <script src="https://tailwindcss.com"></script>
 </head>
-<body>
-<header>
-  <h1>Easy Car SAS di Biagio Folleri & C.</h1>
-  <p>La tua soluzione globale nel mondo del ricambio</p>
-</header>
-<nav>
-  <a href="#azienda">Azienda</a>
-  <a href="#partner">Partner</a>
-  <a href="#servizi">Servizi</a>
-  <a href="[b2b.easycarsas.it](https://b2b.easycarsas.it/easycar/)">E-Commerce</a>
-</nav>
+<body class="bg-slate-50 text-gray-800">
+  <header class="bg-[#0078b8] text-white py-12 text-center shadow-lg">
+    <h1 class="text-3xl md:text-4xl font-black uppercase">Easy Car SAS di Biagio Folleri & C.</h1>
+    <p class="text-lg opacity-90 mt-2 italic">La tua soluzione globale nel mondo del ricambio</p>
+  </header>
 
-<section id="azienda">
-  <h2>Chi Siamo</h2>
-  <p>Con sede a Cagliari, Easy Car SAS è un punto di riferimento in Sardegna per la distribuzione di ricambi auto meccanici, elettrici e di carrozzeria. Da anni collaboriamo con i migliori brand europei e asiatici per offrire prodotti affidabili e supporto tecnico di alto livello.</p>
-</section>
+  <nav class="bg-[#005f92] sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-center space-x-4 md:space-x-8 py-4 font-bold text-white text-sm md:text-base">
+      <a href="#azienda" class="hover:text-blue-200">CHI SIAMO</a>
+      <a href="#partner" class="hover:text-blue-200">PARTNER</a>
+      <a href="https://b2b.easycarsas.it/easycar/" class="bg-orange-500 px-4 py-1 rounded hover:bg-orange-600 transition">E-COMMERCE</a>
+    </div>
+  </nav>
 
-<section id="partner">
-  <h2>I Nostri Partner</h2>
-  <p>Collaboriamo con marchi rinomati per garantire qualità e disponibilità continua:</p>
-  <div class="partner">
-    <div style="background:#009fe31a;"><h3>CRISTAL DRIVE</h3><p>Parabrezza, lunotti, scendenti e accessori vetro.</p></div>
-    <div><h3>LPR</h3><p>Componenti frenanti di alta precisione e lunga durata.</p></div>
-    <div><h3>POLIPLAST</h3><p>Plastiche, lamierati e accessori carrozzeria.</p></div>
-    <div><h3>SIROIL</h3><p>Lubrificanti e fluidi professionali per auto e truck.</p></div>
-    <div><h3>KAMOKA</h3><p>Filtri, sensori, parti elettriche e meccaniche aftermarket.</p></div>
+  <section id="azienda" class="max-w-5xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold text-[#004e77] mb-6">Punto di riferimento in Sardegna</h2>
+    <p class="text-lg leading-relaxed text-gray-700">
+      Con sede a <strong>Cagliari</strong>, Easy Car SAS distribuisce ricambi auto meccanici, elettrici e di carrozzeria. 
+      Siamo specializzati nella fornitura rapida per officine e professionisti del settore, garantendo spedizioni in tutta l'isola.
+    </p>
+  </section>
+
+  <section id="partner" class="bg-white py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-[#004e77] mb-12">I Nostri Partner & Materiali</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Cristalli -->
+        <div class="p-6 rounded-xl border-t-4 border-blue-400 bg-blue-50">
+          <h3 class="font-black text-xl mb-3">CRISTALLI</h3>
+          <p class="text-sm text-gray-600 mb-4">Partner: Crystal Drive, Dira, Miraglio, Biagi.</p>
+          <ul class="text-sm space-y-1"><li>• Parabrezza e Lunotti</li><li>• Alzavetri e Maniglie</li></ul>
+        </div>
+        <!-- Meccanica -->
+        <div class="p-6 rounded-xl border-t-4 border-red-500 bg-red-50">
+          <h3 class="font-black text-xl mb-3">MECCANICA</h3>
+          <p class="text-sm text-gray-600 mb-4">Partner: LPR, Kamoka, Ocap, WAI.</p>
+          <ul class="text-sm space-y-1"><li>• Sistemi frenanti (LPR)</li><li>• Filtri e Alternatori</li></ul>
+        </div>
+        <!-- Manutenzione -->
+        <div class="p-6 rounded-xl border-t-4 border-green-500 bg-green-50">
+          <h3 class="font-black text-xl mb-3">MANUTENZIONE</h3>
+          <p class="text-sm text-gray-600 mb-4">Partner: Siroil, 4Season, Fastner.</p>
+          <ul class="text-sm space-y-1"><li>• Lubrificanti e Additivi</li><li>• Climatizzazione</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#004e77] text-white py-8 text-center text-sm">
+    <p>© 2026 Easy Car SAS — Viale Umberto Ticca 26, Cagliari</p>
   </div>
-</section>
-
-<section id="servizi">
-  <h2>Servizi e Disponibilità</h2>
-  <p>Offriamo spedizioni in tutta la Sardegna, assistenza dedicata e un e-commerce costantemente aggiornato con disponibilità in tempo reale. Ogni ordine viene evaso con rapidità grazie alla nostra rete logistica ottimizzata.</p>
-  <p><a class="btn" href="[b2b.easycarsas.it](https://b2b.easycarsas.it/easycar/)">Accedi al nostro E-Commerce</a></p>
-</section>
-
-<footer>
-  © 2026 Easy Car SAS di Biagio Folleri & C. — Viale Umberto Ticca 26, Cagliari (CA)
-</footer>
 </body>
 </html>
