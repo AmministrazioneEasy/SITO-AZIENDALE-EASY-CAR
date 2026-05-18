@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Car S.A.S. | Distribuzione Ricambi Auto Sardegna</title>
+    <style>
+        :root {
+            --primary: #0b3c5d;
+            --secondary: #328cc1;
+            --accent: #d9b310;
+            --dark: #1d2731;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        nav {
+            background-color: var(--primary);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav .logo {
+            color: var(--white);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav .logo span { color: var(--accent); }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.95em; transition: color 0.3s; }
+        nav ul a:hover { color: var(--accent); }
+
+        .hero {
+            background: linear-gradient(rgba(11, 60, 93, 0.9), rgba(29, 39, 49, 0.95));
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 15px; }
+        .hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto 30px auto; opacity: 0.9; }
+        
+        .cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
+        .btn-primary { background-color: var(--accent); color: var(--dark); box-shadow: 0 4px 10px rgba(217, 179, 16, 0.3); }
+        .btn-primary:hover { background-color: var(--white); transform: translateY(-2px); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+        .section-title { text-align: center; font-size: 2.2em; color: var(--primary); margin-bottom: 40px; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--accent); margin: 10px auto 0 auto; border-radius: 2px; }
+
+        /* Struttura Categorie Ricambi */
+        .cat-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .cat-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--secondary);
+        }
+        .cat-card h3 { color: var(--primary); font-size: 1.4em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .subcat-list { list-style: none; padding-left: 0; }
+        .subcat-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95em; }
+        .subcat-list li:last-child { border-bottom: none; }
+        .material-tag {
+            display: inline-block;
+            background: #eef2f5;
+            color: #555;
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: center; }
+        .brand-item { padding: 20px; background: var(--white); border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #eef2f5; }
+
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media(max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } .hero h1 { font-size: 2em; } nav { flex-direction: column; gap: 15px; } }
+        .info-box { background: var(--white); padding: 30px; border-radius: 8px; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .info-box p { margin-bottom: 12px; }
+        .badge { background-color: var(--primary); color: var(--white); padding: 2px 6px; border-radius: 4px; font-size: 0.8em; font-weight: 600; }
+
+        footer { background-color: var(--dark); color: rgba(255,255,255,0.7); text-align: center; padding: 40px 20px; font-size: 0.95em; border-top: 5px solid var(--primary); margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">EASY <span>CAR</span></div>
+        <ul>
+            <li><a href="#ricambi">Gamma Ricambi</a></li>
+            <li><a href="#partner">I Nostri Marchi</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Distribuzione Ricambi Auto — Easy Car S.A.S.</h1>
+        <p>Logistica d'eccellenza, assortimento completo e portale ordini B2B per officine e ricambisti in Sardegna.</p>
+        <div class="cta-group">
+            <a href="https://easycarsas.it" target="_blank" class="btn btn-primary">🛒 Accedi al Portale Ordini B2B</a>
+        </div>
+    </header>
+
+    <!-- Sezione Dettaglio Linee Prodotto, Sotto-categorie e Materiali -->
+    <section class="container" id="ricambi">
+        <h2 class="section-title">Organizzazione Prodotti e Materiali</h2>
+        <div class="cat-container">
+            
+            <!-- Gruppo Frenante -->
+            <div class="cat-card">
+                <h3>🛑 Linea Sistema Frenante</h3>
+                <ul class="subcat-list">
+                    <li>
+                        <strong>Pastiglie Freno</strong> — Mescole organiche, ceramiche e semi-metalliche a basso contenuto di rame.
+                        <br><span class="material-tag">Attrito Certificato OE</span>
+                    </li>
+                    <li>
+                        <strong>Dischi Freno</strong> — Versioni standard, ventilate e ad alto contenuto di carbonio (High Carbon) per prevenire distorsioni termiche.
+                        <br><span class="material-tag">Ghisa Grigia GG20 / HC</span>
+                    </li>
+                    <li>
+                        <strong>Idraulica Freno</strong> — Cilindri maestri, cilindretti ruota e pinze freno con trattamenti anti-corrosione.
+                        <br><span class="material-tag">Alluminio / Ghisa Trattata</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gruppo Sospensione e Sterzo -->
+            <div class="cat-card">
+                <h3>⚙️ Organi di Sterzo e Sospensione</h3>
+                <ul class="subcat-list">
+                    <li>
+                        <strong>Bracci Oscillanti e Snodi</strong> — Geometrie strutturali forgiate ad alta resistenza per la massima stabilità dinamica.
+                        <br><span class="material-tag">Acciaio Forgiato / Alluminio</span>
+                    </li>
+                    <li>
+                        <strong>Boccole e Supporti</strong> — Gomma-metallo ingegnerizzata per smorzare le vibrazioni stradali e resistere agli agenti atmosferici.
+                        <br><span class="material-tag">Gomma Naturale / Poliuretano</span>
+                    </li>
+                    <li>
+                        <strong>Tiranterie e Snodi Sterzo</strong> — Giunti sferici temperati a induzione con grasso sintetico ad alte prestazioni.
+                        <br><span class="material-tag">Acciaio legato ad alta resilienza</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gruppo Elettrico e Avviamento -->
+            <div class="cat-card">
+                <h3>🔌 Componenti Elettrici e Termici</h3>
+                <ul class="subcat-list">
+                    <li>
+                        <strong>Alternatori e Motorini Avviamento</strong> — Unità testate al 100% per tolleranze termiche gravose e cicli di avvio prolungati.
+                        <br><span class="material-tag">Rame Elettrolitico / Magneti Neodimio</span>
+                    </li>
+                    <li>
+                        <strong>Elettronica Motore</strong> — Sensori di giri, misuratori massa aria (debimetri) e bobine d'accensione ad altissima precisione.
+                        <br><span class="material-tag">Polimeri Termoplastici / Connessioni Dorate</span>
+                    </li>
+                    <li>
+                        <strong>Tergicristalli e Spazzole</strong> — Profilati con rivestimento in grafite per una tergitura silenziosa su tutti i tipi di parabrezza.
+                        <br><span class="material-tag">Mescola Gomma EPDM + Grafite</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sezione Partner -->
+    <section class="container" id="partner" style="border-top: 1px solid #ddd; padding-top: 5px;">
+        <h2 class="section-title">Marchi Distribuiti</h2>
+        <div class="brands-grid">
+            <div class="brand-item">LPR Brakes</div>
+            <div class="brand-item">KAMOKA</div>
+            <div class="brand-item">OCAP</div>
+            <div class="brand-item">WAI Global</div>
+            <div class="brand-item">MAGNETI MARELLI</div>
+            <div class="brand-item">VALEO</div>
+        </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section class="container" id="contatti">
+        <h2 class="section-title">Informazioni Operative</h2>
+        <div class="contact-layout">
+            <div class="info-box">
+                <h3>Sede di Cagliari</h3>
+                <p style="margin-top: 15px;">Viale Umberto Ticca, 26 - 09122 Cagliari (CA)</p>
+                <p><strong>Fisso:</strong> <a href="tel:070242054">070 242054</a> / <a href="tel:070240632">070 240632</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me" target="_blank">+39 393 867 2737</a></p>
+                <p><strong>Email:</strong> <a href="mailto:amministrazione@easycarsas.it">amministrazione@easycarsas.it</a></p>
+            </div>
+            <div class="info-box">
+                <h3>Logistica e Orari</h3>
+                <p style="margin-top: 15px;"><span class="badge">Lunedì - Venerdì</span></p>
+                <p>• Mattina: 08:30 - 13:00 | Pomeriggio: 15:30 - 19:00</p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                    ℹ️ <strong>Politica Resi:</strong> Autorizzati solo entro 10 giorni lavorativi, esclusivamente con imballo originale integro.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Easy Car S.A.S. di Aresu Sergio & C.</strong></p>
+        <p>Viale Umberto Ticca 26, 09122 Cagliari | P.IVA: 02562470921</p>
+        <p style="font-size: 0.85em; opacity: 0.6; margin-top: 10px;">&copy; 2026 Easy Car. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>
